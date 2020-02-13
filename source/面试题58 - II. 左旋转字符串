@@ -1,0 +1,6 @@
+from collections import deque
+class Solution:
+    def reverseLeftWords(self, s: str, n: int) -> str:
+        new_s = deque(s)
+        new_s.rotate(-n)
+        return ''.join(new_s)
