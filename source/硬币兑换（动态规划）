@@ -1,0 +1,23 @@
+
+coin_list = [2, 5, 7]
+coin_num = 3
+
+def coinChange(A, M):
+    if M < 0:
+        return -1
+    res_arr = [0 for _ in range(M+1)]
+    N = len(A)
+    res_arr[0] = 0
+    for i in range(1, M+1):
+        res_arr[i] = float("inf")
+        for j in range(N):
+            if i >= A[j] and res_arr[i- A[j]] != float("inf"):
+                res_arr[i] = min(res_arr[i- A[j]] + 1, res_arr[i])
+    print(res_arr)
+    if res_arr[M] == float("inf"):
+        res_arr[M] = -1
+
+    return res_arr[M]
+
+res = coinChange(coin_list, coin_num)
+print(res)
