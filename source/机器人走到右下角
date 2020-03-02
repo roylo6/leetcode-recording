@@ -1,0 +1,21 @@
+
+col = 8
+row = 8
+
+def unique_path(M, N):
+    if M == 0 or N == 0:
+        return 1
+
+    f = [[0]* N for _ in range(M)]
+    for i in range(M):
+        for j in range(N):
+            if i == 0 or j == 0:
+                f[i][j] = 1
+            else:
+                f[i][j] = f[i-1][j] + f[i][j-1]
+
+    return f[M-1][N-1]
+
+
+res = unique_path(col, row)
+print(res)
