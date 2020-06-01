@@ -1,0 +1,14 @@
+def find(l, x):
+    m = len(l) - 1              # 取矩阵长度
+    n = len(l[0]) - 1           # 取第一个数组长度
+    r = 0                       # 初始化查找位置（横向）
+    c = n                       # 初始化查找位置（纵向）
+    while c >= 0 and r <= m:    # 循环条件，当纵向大于等于0或者横向小于等于0时结束循环
+        value = l[r][c]         # 从第一行的最后一个元素开始遍历
+        if value == x:          
+            return True         # 如果相等，则返回True
+        elif value < x:         
+            r += 1              # 如果当前值小于目标值，则遍历当前数组的下一个值
+        elif value > x:
+            c -= 1              # 如果当前值大于目标值，则遍历上一行的下一个值
+    return False                # 循环结束均不满足则返回False
