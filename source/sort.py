@@ -2,6 +2,8 @@
 @Create Time : 2021/3/3 17:25
 @Author      : luotaifu
 """
+
+
 def select_sort(num_list):
     """
     选择排序
@@ -40,9 +42,9 @@ def bubble_sort(num_list):
     return num_list
 
 
-def insertion_sort(num_list):
+def insertion_sort1(num_list):
     """
-    插入排序
+    插入排序1
     :param num_list:
     :return:
     """
@@ -57,11 +59,27 @@ def insertion_sort(num_list):
     return num_list
 
 
+def insertion_sort2(num_list):
+    """
+    插入排序2
+    :param num_list:
+    :return:
+    """
+    for i in range(1, len(num_list)):
+        for j in range(i, 0, -1):
+            if num_list[j] < num_list[j-1]:
+                tmp = num_list[j]
+                num_list[j] = num_list[j-1]
+                num_list[j-1] = tmp
+    return num_list
+
+
 def run():
-    num_list = [3, 7, 2, 4, 9, 10, 6, 8, 5, 0, -4]
-    print(select_sort(num_list))
-    print(bubble_sort(num_list))
-    print(insertion_sort(num_list))
+    num_list = [3, 7, 2, 4, 9, 10, 6, 8, 5, 0, -4, 1]
+    # print(select_sort(num_list))
+    # print(bubble_sort(num_list))
+    # print(insertion_sort1(num_list))
+    print(insertion_sort2(num_list))
 
 
 if __name__ == '__main__':
